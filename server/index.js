@@ -2,6 +2,7 @@ const express=require('express')
 const dbConnect = require('./config/db')
 const cors= require("cors")
 const userRouter = require('./routes/user.routes')
+const booksRouter = require('./routes/books.routes')
 const app=express()
 
 require("dotenv").config()
@@ -15,6 +16,7 @@ app.get("/", (req, res)=>{
 })
 
 app.use("/api/auth", userRouter)
+app.use("/api", booksRouter)
 
 const PORT= process.env.PORT || 5000
 
